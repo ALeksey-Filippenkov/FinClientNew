@@ -1,0 +1,39 @@
+E:\Repositories\My Projects\FinApp\FinClient\FinCommon\bin\Debug\net8.0\FinCommon.deps.json
+E:\Repositories\My Projects\FinApp\FinClient\FinCommon\bin\Debug\net8.0\FinCommon.dll
+E:\Repositories\My Projects\FinApp\FinClient\FinCommon\bin\Debug\net8.0\FinCommon.pdb
+E:\Repositories\My Projects\FinApp\FinClient\FinCommon\obj\Debug\net8.0\FinCommon.GeneratedMSBuildEditorConfig.editorconfig
+E:\Repositories\My Projects\FinApp\FinClient\FinCommon\obj\Debug\net8.0\FinCommon.AssemblyInfoInputs.cache
+E:\Repositories\My Projects\FinApp\FinClient\FinCommon\obj\Debug\net8.0\FinCommon.AssemblyInfo.cs
+E:\Repositories\My Projects\FinApp\FinClient\FinCommon\obj\Debug\net8.0\FinCommon.csproj.CoreCompileInputs.cache
+E:\Repositories\My Projects\FinApp\FinClient\FinCommon\obj\Debug\net8.0\FinCommon.dll
+E:\Repositories\My Projects\FinApp\FinClient\FinCommon\obj\Debug\net8.0\refint\FinCommon.dll
+E:\Repositories\My Projects\FinApp\FinClient\FinCommon\obj\Debug\net8.0\FinCommon.pdb
+E:\Repositories\My Projects\FinApp\FinClient\FinCommon\obj\Debug\net8.0\ref\FinCommon.dll
+G:\FinClient\FinCommon\bin\Debug\net8.0\FinCommon.deps.json
+G:\FinClient\FinCommon\bin\Debug\net8.0\FinCommon.dll
+G:\FinClient\FinCommon\bin\Debug\net8.0\FinCommon.pdb
+G:\FinClient\FinCommon\obj\Debug\net8.0\FinCommon.GeneratedMSBuildEditorConfig.editorconfig
+G:\FinClient\FinCommon\obj\Debug\net8.0\FinCommon.AssemblyInfoInputs.cache
+G:\FinClient\FinCommon\obj\Debug\net8.0\FinCommon.AssemblyInfo.cs
+G:\FinClient\FinCommon\obj\Debug\net8.0\FinCommon.csproj.CoreCompileInputs.cache
+G:\FinClient\FinCommon\obj\Debug\net8.0\FinCommon.dll
+G:\FinClient\FinCommon\obj\Debug\net8.0\refint\FinCommon.dll
+G:\FinClient\FinCommon\obj\Debug\net8.0\FinCommon.pdb
+G:\FinClient\FinCommon\obj\Debug\net8.0\ref\FinCommon.dll
+G:\FinClient\FinCommon\bin\Debug\net8.0\FinCommon.runtimeconfig.json
+G:\FinClient\FinCommon\obj\Debug\net8.0\FinCommon.csproj.AssemblyReference.cache
+G:\FinClient\FinCommon\obj\Debug\net8.0\FinCommon.genruntimeconfig.cache
+G:\FinClientNew\FinCommon\bin\Debug\net8.0\FinCommon.deps.json
+G:\FinClientNew\FinCommon\bin\Debug\net8.0\FinCommon.runtimeconfig.json
+G:\FinClientNew\FinCommon\bin\Debug\net8.0\FinCommon.dll
+G:\FinClientNew\FinCommon\bin\Debug\net8.0\FinCommon.pdb
+G:\FinClientNew\FinCommon\obj\Debug\net8.0\FinCommon.csproj.AssemblyReference.cache
+G:\FinClientNew\FinCommon\obj\Debug\net8.0\FinCommon.GeneratedMSBuildEditorConfig.editorconfig
+G:\FinClientNew\FinCommon\obj\Debug\net8.0\FinCommon.AssemblyInfoInputs.cache
+G:\FinClientNew\FinCommon\obj\Debug\net8.0\FinCommon.AssemblyInfo.cs
+G:\FinClientNew\FinCommon\obj\Debug\net8.0\FinCommon.csproj.CoreCompileInputs.cache
+G:\FinClientNew\FinCommon\obj\Debug\net8.0\FinCommon.dll
+G:\FinClientNew\FinCommon\obj\Debug\net8.0\refint\FinCommon.dll
+G:\FinClientNew\FinCommon\obj\Debug\net8.0\FinCommon.pdb
+G:\FinClientNew\FinCommon\obj\Debug\net8.0\FinCommon.genruntimeconfig.cache
+G:\FinClientNew\FinCommon\obj\Debug\net8.0\ref\FinCommon.dll
