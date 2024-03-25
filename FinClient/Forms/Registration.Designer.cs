@@ -48,6 +48,13 @@
             emailInput = new TextBox();
             backButton = new Button();
             addButton = new Button();
+            errorAge = new Label();
+            errorPhoneNumber = new Label();
+            errorLogin = new Label();
+            errorPassword = new Label();
+            errorEmail = new Label();
+            errorName = new Label();
+            errorSurname = new Label();
             SuspendLayout();
             // 
             // label1
@@ -135,63 +142,63 @@
             // 
             name.Location = new Point(372, 37);
             name.Name = "name";
-            name.Size = new Size(377, 23);
+            name.Size = new Size(250, 23);
             name.TabIndex = 9;
             // 
             // surnameInput
             // 
             surnameInput.Location = new Point(372, 70);
             surnameInput.Name = "surnameInput";
-            surnameInput.Size = new Size(377, 23);
+            surnameInput.Size = new Size(250, 23);
             surnameInput.TabIndex = 10;
             // 
             // ageInput
             // 
             ageInput.Location = new Point(372, 107);
             ageInput.Name = "ageInput";
-            ageInput.Size = new Size(377, 23);
+            ageInput.Size = new Size(250, 23);
             ageInput.TabIndex = 11;
             // 
             // phoneInput
             // 
             phoneInput.Location = new Point(372, 218);
             phoneInput.Name = "phoneInput";
-            phoneInput.Size = new Size(377, 23);
+            phoneInput.Size = new Size(250, 23);
             phoneInput.TabIndex = 14;
             // 
             // adressInput
             // 
             adressInput.Location = new Point(372, 177);
             adressInput.Name = "adressInput";
-            adressInput.Size = new Size(377, 23);
+            adressInput.Size = new Size(250, 23);
             adressInput.TabIndex = 13;
             // 
             // cityInput
             // 
             cityInput.Location = new Point(372, 141);
             cityInput.Name = "cityInput";
-            cityInput.Size = new Size(377, 23);
+            cityInput.Size = new Size(250, 23);
             cityInput.TabIndex = 12;
             // 
             // passwordInput
             // 
             passwordInput.Location = new Point(372, 338);
             passwordInput.Name = "passwordInput";
-            passwordInput.Size = new Size(377, 23);
+            passwordInput.Size = new Size(250, 23);
             passwordInput.TabIndex = 17;
             // 
             // loginInput
             // 
             loginInput.Location = new Point(372, 301);
             loginInput.Name = "loginInput";
-            loginInput.Size = new Size(377, 23);
+            loginInput.Size = new Size(250, 23);
             loginInput.TabIndex = 16;
             // 
             // emailInput
             // 
             emailInput.Location = new Point(372, 252);
             emailInput.Name = "emailInput";
-            emailInput.Size = new Size(377, 23);
+            emailInput.Size = new Size(250, 23);
             emailInput.TabIndex = 15;
             // 
             // backButton
@@ -206,7 +213,7 @@
             // 
             // addButton
             // 
-            addButton.Location = new Point(674, 388);
+            addButton.Location = new Point(547, 388);
             addButton.Name = "addButton";
             addButton.Size = new Size(75, 23);
             addButton.TabIndex = 19;
@@ -214,11 +221,88 @@
             addButton.UseVisualStyleBackColor = true;
             addButton.Click += AddButton_Click;
             // 
+            // errorAge
+            // 
+            errorAge.AutoSize = true;
+            errorAge.Location = new Point(650, 110);
+            errorAge.Name = "errorAge";
+            errorAge.Size = new Size(44, 15);
+            errorAge.TabIndex = 20;
+            errorAge.Text = "label10";
+            errorAge.Visible = false;
+            // 
+            // errorPhoneNumber
+            // 
+            errorPhoneNumber.AutoSize = true;
+            errorPhoneNumber.Location = new Point(650, 221);
+            errorPhoneNumber.Name = "errorPhoneNumber";
+            errorPhoneNumber.Size = new Size(44, 15);
+            errorPhoneNumber.TabIndex = 21;
+            errorPhoneNumber.Text = "label10";
+            errorPhoneNumber.Visible = false;
+            // 
+            // errorLogin
+            // 
+            errorLogin.AutoSize = true;
+            errorLogin.Location = new Point(650, 304);
+            errorLogin.Name = "errorLogin";
+            errorLogin.Size = new Size(44, 15);
+            errorLogin.TabIndex = 22;
+            errorLogin.Text = "label10";
+            errorLogin.Visible = false;
+            // 
+            // errorPassword
+            // 
+            errorPassword.AutoSize = true;
+            errorPassword.Location = new Point(650, 341);
+            errorPassword.Name = "errorPassword";
+            errorPassword.Size = new Size(44, 15);
+            errorPassword.TabIndex = 23;
+            errorPassword.Text = "label10";
+            errorPassword.Visible = false;
+            // 
+            // errorEmail
+            // 
+            errorEmail.AutoSize = true;
+            errorEmail.Location = new Point(650, 255);
+            errorEmail.Name = "errorEmail";
+            errorEmail.Size = new Size(44, 15);
+            errorEmail.TabIndex = 24;
+            errorEmail.Text = "label10";
+            errorEmail.Visible = false;
+            // 
+            // errorName
+            // 
+            errorName.AutoSize = true;
+            errorName.Location = new Point(650, 40);
+            errorName.Name = "errorName";
+            errorName.Size = new Size(44, 15);
+            errorName.TabIndex = 25;
+            errorName.Text = "label10";
+            errorName.Visible = false;
+            // 
+            // errorSurname
+            // 
+            errorSurname.AutoSize = true;
+            errorSurname.Location = new Point(650, 73);
+            errorSurname.Name = "errorSurname";
+            errorSurname.Size = new Size(44, 15);
+            errorSurname.TabIndex = 26;
+            errorSurname.Text = "label10";
+            errorSurname.Visible = false;
+            // 
             // Registration
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(704, 450);
+            Controls.Add(errorSurname);
+            Controls.Add(errorName);
+            Controls.Add(errorEmail);
+            Controls.Add(errorPassword);
+            Controls.Add(errorLogin);
+            Controls.Add(errorPhoneNumber);
+            Controls.Add(errorAge);
             Controls.Add(addButton);
             Controls.Add(backButton);
             Controls.Add(passwordInput);
@@ -267,5 +351,12 @@
         private TextBox emailInput;
         private Button backButton;
         private Button addButton;
+        private Label errorAge;
+        private Label errorPhoneNumber;
+        private Label errorLogin;
+        private Label errorPassword;
+        private Label errorEmail;
+        private Label errorName;
+        private Label errorSurname;
     }
 }

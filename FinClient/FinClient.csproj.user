@@ -1,7 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="Forms\Authorization.cs">
+    <Compile Update="Forms\AuthorizationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\MoneyTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ReplenishmentCashAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\CreatingMoneyAccount.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Registration.cs">
@@ -10,5 +19,16 @@
     <Compile Update="Forms\UsersPersonalAccount.cs">
       <SubType>Form</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Forms\Registration.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\ReplenishmentCashAccount.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\UsersPersonalAccount.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

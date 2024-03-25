@@ -9,52 +9,11 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "FinCommon.DTO.LoginDTO",
+        "Type": "FinCommon.DTO.LoginInputDataDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "FinCommon.DTO.ResultDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "FinServer.Controllers.PersonController",
-    "Method": "PutUserData",
-    "RelativePath": "Person/PutUserData/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "dto",
-        "Type": "FinCommon.DTO.PutUserDataDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "FinCommon.DTO.ResultDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "FinServer.Controllers.PersonController",
@@ -70,17 +29,28 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FinServer.Controllers.PersonController",
+    "Method": "ChangeUsersPersonalData",
+    "RelativePath": "Person/UpdateUsersPersonalData/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Type": "FinCommon.DTO.ResultDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "FinCommon.DTO.UserDataDTO",
+        "IsRequired": true
       }
-    ]
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "FinServer.Controllers.PersonController",
@@ -99,6 +69,100 @@
     "ReturnTypes": [
       {
         "Type": "FinServer.DbModels.DbPerson",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FinServer.Controllers.PersonMoneyController",
+    "Method": "CreatingCashAccount",
+    "RelativePath": "PersonMoney/CreatingCashAccount",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "FinCommon.DTO.CurrencyNumberIndexDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FinCommon.DTO.ValidationCreatingMoneyAccountDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FinServer.Controllers.PersonMoneyController",
+    "Method": "ReplenishmentCashAccount",
+    "RelativePath": "PersonMoney/ReplenishmentCashAccount",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "FinCommon.DTO.MoneyAccountDetailsDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FinServer.Controllers.PersonMoneyController",
+    "Method": "GetUserCashBalance",
+    "RelativePath": "PersonMoney/UserCashBalance/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FinCommon.DTO.CashAccountBalanceDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FinServer.Controllers.PersonMoneyController",
+    "Method": "GetUseTransfer",
+    "RelativePath": "PersonMoney/UserTransfer/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FinCommon.DTO.TransferHistoryDataDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",

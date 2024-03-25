@@ -1,6 +1,6 @@
 ﻿namespace FinClient.Forms
 {
-    partial class Authorization
+    partial class AuthorizationForm
     {
         /// <summary>
         ///  Required designer variable.

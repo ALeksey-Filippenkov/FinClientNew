@@ -412,3 +412,4 @@ G:\FinClientNew\FinServer\obj\Debug\net8.0\refint\FinServer.dll
 G:\FinClientNew\FinServer\obj\Debug\net8.0\FinServer.pdb
 G:\FinClientNew\FinServer\obj\Debug\net8.0\FinServer.genruntimeconfig.cache
 G:\FinClientNew\FinServer\obj\Debug\net8.0\ref\FinServer.dll
+G:\FinClientNew\FinServer\obj\Debug\net8.0\FinServer.sourcelink.json

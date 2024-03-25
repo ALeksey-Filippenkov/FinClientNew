@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace FinServer.DbModels
+﻿namespace FinServer.DbModels
 {
     public class ApplicationContext: DbContext
     {
@@ -9,7 +7,11 @@ namespace FinServer.DbModels
             optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=FinServerDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
         }
 
-        public virtual DbSet<DbPerson> Persons { get; set; }
+        public  DbSet<DbPerson> Persons { get; set; }
+
+        public  DbSet<DbPersonMoney> PersonMoneys { get; set; }
+
+        public  DbSet<DbHistoryTransfer> HistoryTransfers { get; set; }
 
     }
 }

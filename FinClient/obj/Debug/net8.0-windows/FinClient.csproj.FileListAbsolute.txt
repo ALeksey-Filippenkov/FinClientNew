@@ -242,4 +242,14 @@ G:\FinClientNew\FinClient\bin\Debug\net8.0-windows\runtimes\win-x64\native\WebVi
 G:\FinClientNew\FinClient\bin\Debug\net8.0-windows\runtimes\win-x86\native\WebView2Loader.dll
 G:\FinClientNew\FinClient\bin\Debug\net8.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 G:\FinClientNew\FinClient\obj\Debug\net8.0-windows\FinancialApp.Forms.UsersPersonalAccount.resources
-G:\FinClientNew\FinClient\obj\Debug\net8.0-windows\FinClient.Forms.Authorization.resources
+G:\FinClientNew\FinClient\obj\Debug\net8.0-windows\FinClient.sourcelink.json
+G:\FinClientNew\FinClient\obj\Debug\net8.0-windows\FinancialApp.Forms.ReplenishmentCashAccount.resources
+G:\FinClientNew\FinClient\bin\Debug\net8.0-windows\FinServer.deps.json
+G:\FinClientNew\FinClient\bin\Debug\net8.0-windows\FinServer.runtimeconfig.json
+G:\FinClientNew\FinClient\bin\Debug\net8.0-windows\appsettings.Development.json
+G:\FinClientNew\FinClient\bin\Debug\net8.0-windows\appsettings.json
+G:\FinClientNew\FinClient\bin\Debug\net8.0-windows\FinServer.exe
+G:\FinClientNew\FinClient\bin\Debug\net8.0-windows\FinServer.dll
+G:\FinClientNew\FinClient\bin\Debug\net8.0-windows\FinServer.pdb
+G:\FinClientNew\FinClient\obj\Debug\net8.0-windows\FinClient.Forms.MoneyTransfer.resources
+G:\FinClientNew\FinClient\obj\Debug\net8.0-windows\FinClient.Forms.AuthorizationForm.resources

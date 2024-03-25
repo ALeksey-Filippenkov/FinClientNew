@@ -32,6 +32,13 @@
             saveLKButton = new Button();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            errorSurname = new Label();
+            errorName = new Label();
+            errorEmail = new Label();
+            errorPassword = new Label();
+            errorLogin = new Label();
+            errorPhoneNumber = new Label();
+            errorAge = new Label();
             password = new TextBox();
             login = new TextBox();
             email = new TextBox();
@@ -71,8 +78,8 @@
             historyOperationExcel = new Button();
             searchButton = new Button();
             moneyTransferButton = new Button();
-            createAccount = new Button();
-            button1 = new Button();
+            createCashAccount = new Button();
+            ReplenishmentCashAccountButton = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -94,7 +101,7 @@
             // 
             // saveLKButton
             // 
-            saveLKButton.Location = new Point(801, 502);
+            saveLKButton.Location = new Point(408, 394);
             saveLKButton.Name = "saveLKButton";
             saveLKButton.Size = new Size(167, 23);
             saveLKButton.TabIndex = 3;
@@ -109,13 +116,20 @@
             tabControl1.Location = new Point(0, 1);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(985, 619);
+            tabControl1.Size = new Size(1082, 619);
             tabControl1.TabIndex = 4;
             tabControl1.BindingContextChanged += TabPage2_Click;
             tabControl1.Click += TabPage2_Click;
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(errorSurname);
+            tabPage1.Controls.Add(errorName);
+            tabPage1.Controls.Add(errorEmail);
+            tabPage1.Controls.Add(errorPassword);
+            tabPage1.Controls.Add(errorLogin);
+            tabPage1.Controls.Add(errorPhoneNumber);
+            tabPage1.Controls.Add(errorAge);
             tabPage1.Controls.Add(password);
             tabPage1.Controls.Add(login);
             tabPage1.Controls.Add(email);
@@ -138,70 +152,140 @@
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(977, 591);
+            tabPage1.Size = new Size(1074, 591);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Личные данные";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // errorSurname
+            // 
+            errorSurname.AutoSize = true;
+            errorSurname.Location = new Point(613, 43);
+            errorSurname.Name = "errorSurname";
+            errorSurname.Size = new Size(44, 15);
+            errorSurname.TabIndex = 33;
+            errorSurname.Text = "label10";
+            errorSurname.Visible = false;
+            // 
+            // errorName
+            // 
+            errorName.AutoSize = true;
+            errorName.Location = new Point(613, 10);
+            errorName.Name = "errorName";
+            errorName.Size = new Size(44, 15);
+            errorName.TabIndex = 32;
+            errorName.Text = "label10";
+            errorName.Visible = false;
+            // 
+            // errorEmail
+            // 
+            errorEmail.AutoSize = true;
+            errorEmail.Location = new Point(613, 225);
+            errorEmail.Name = "errorEmail";
+            errorEmail.Size = new Size(44, 15);
+            errorEmail.TabIndex = 31;
+            errorEmail.Text = "label10";
+            errorEmail.Visible = false;
+            // 
+            // errorPassword
+            // 
+            errorPassword.AutoSize = true;
+            errorPassword.Location = new Point(613, 311);
+            errorPassword.Name = "errorPassword";
+            errorPassword.Size = new Size(44, 15);
+            errorPassword.TabIndex = 30;
+            errorPassword.Text = "label10";
+            errorPassword.Visible = false;
+            // 
+            // errorLogin
+            // 
+            errorLogin.AutoSize = true;
+            errorLogin.Location = new Point(613, 274);
+            errorLogin.Name = "errorLogin";
+            errorLogin.Size = new Size(44, 15);
+            errorLogin.TabIndex = 29;
+            errorLogin.Text = "label10";
+            errorLogin.Visible = false;
+            // 
+            // errorPhoneNumber
+            // 
+            errorPhoneNumber.AutoSize = true;
+            errorPhoneNumber.Location = new Point(613, 191);
+            errorPhoneNumber.Name = "errorPhoneNumber";
+            errorPhoneNumber.Size = new Size(44, 15);
+            errorPhoneNumber.TabIndex = 28;
+            errorPhoneNumber.Text = "label10";
+            errorPhoneNumber.Visible = false;
+            // 
+            // errorAge
+            // 
+            errorAge.AutoSize = true;
+            errorAge.Location = new Point(613, 80);
+            errorAge.Name = "errorAge";
+            errorAge.Size = new Size(44, 15);
+            errorAge.TabIndex = 27;
+            errorAge.Text = "label10";
+            errorAge.Visible = false;
+            // 
             // password
             // 
-            password.Location = new Point(293, 306);
+            password.Location = new Point(198, 306);
             password.Name = "password";
             password.Size = new Size(377, 23);
             password.TabIndex = 26;
             // 
             // login
             // 
-            login.Location = new Point(293, 269);
+            login.Location = new Point(198, 269);
             login.Name = "login";
             login.Size = new Size(377, 23);
             login.TabIndex = 25;
             // 
             // email
             // 
-            email.Location = new Point(293, 230);
+            email.Location = new Point(198, 230);
             email.Name = "email";
             email.Size = new Size(377, 23);
             email.TabIndex = 24;
             // 
             // phone
             // 
-            phone.Location = new Point(293, 191);
+            phone.Location = new Point(198, 191);
             phone.Name = "phone";
             phone.Size = new Size(377, 23);
             phone.TabIndex = 23;
             // 
             // adress
             // 
-            adress.Location = new Point(293, 150);
+            adress.Location = new Point(198, 150);
             adress.Name = "adress";
             adress.Size = new Size(377, 23);
             adress.TabIndex = 22;
             // 
             // city
             // 
-            city.Location = new Point(293, 114);
+            city.Location = new Point(198, 114);
             city.Name = "city";
             city.Size = new Size(377, 23);
             city.TabIndex = 21;
             // 
             // age
             // 
-            age.Location = new Point(293, 80);
+            age.Location = new Point(198, 80);
             age.Name = "age";
             age.Size = new Size(377, 23);
             age.TabIndex = 20;
             // 
             // surname
             // 
-            surname.Location = new Point(293, 43);
+            surname.Location = new Point(198, 43);
             surname.Name = "surname";
             surname.Size = new Size(377, 23);
             surname.TabIndex = 19;
             // 
             // name
             // 
-            name.Location = new Point(293, 10);
+            name.Location = new Point(198, 10);
             name.Name = "name";
             name.Size = new Size(377, 23);
             name.TabIndex = 18;
@@ -293,12 +377,12 @@
             tabPage2.Controls.Add(historyOperationExcel);
             tabPage2.Controls.Add(searchButton);
             tabPage2.Controls.Add(moneyTransferButton);
-            tabPage2.Controls.Add(createAccount);
-            tabPage2.Controls.Add(button1);
+            tabPage2.Controls.Add(createCashAccount);
+            tabPage2.Controls.Add(ReplenishmentCashAccountButton);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(977, 591);
+            tabPage2.Size = new Size(1074, 591);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Мои финансы";
             tabPage2.UseVisualStyleBackColor = true;
@@ -310,7 +394,7 @@
             tabControl2.Location = new Point(0, 3);
             tabControl2.Name = "tabControl2";
             tabControl2.SelectedIndex = 0;
-            tabControl2.Size = new Size(974, 481);
+            tabControl2.Size = new Size(1068, 481);
             tabControl2.TabIndex = 17;
             tabControl2.Click += TabPage3_Click;
             // 
@@ -325,7 +409,7 @@
             tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(966, 453);
+            tabPage3.Size = new Size(1060, 453);
             tabPage3.TabIndex = 0;
             tabPage3.Text = "Счета";
             tabPage3.UseVisualStyleBackColor = true;
@@ -393,7 +477,7 @@
             tabPage4.Location = new Point(4, 24);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(966, 453);
+            tabPage4.Size = new Size(1060, 453);
             tabPage4.TabIndex = 1;
             tabPage4.Text = "История";
             tabPage4.UseVisualStyleBackColor = true;
@@ -404,7 +488,6 @@
             historyOperationDataGridView.Columns.AddRange(new DataGridViewColumn[] { date, Column1, sender, type, money, Recipient });
             historyOperationDataGridView.Location = new Point(36, 22);
             historyOperationDataGridView.Name = "historyOperationDataGridView";
-            historyOperationDataGridView.RowTemplate.Height = 25;
             historyOperationDataGridView.Size = new Size(667, 386);
             historyOperationDataGridView.TabIndex = 15;
             historyOperationDataGridView.Click += EnterForm_Load;
@@ -488,34 +571,34 @@
             moneyTransferButton.UseVisualStyleBackColor = true;
             moneyTransferButton.Click += MoneyTransferButton_Click;
             // 
-            // createAccount
+            // createCashAccount
             // 
-            createAccount.Location = new Point(40, 490);
-            createAccount.Name = "createAccount";
-            createAccount.Size = new Size(292, 23);
-            createAccount.TabIndex = 11;
-            createAccount.Text = "Создать счет";
-            createAccount.UseVisualStyleBackColor = true;
-            createAccount.Click += CreateAccount_Click;
+            createCashAccount.Location = new Point(40, 490);
+            createCashAccount.Name = "createCashAccount";
+            createCashAccount.Size = new Size(292, 23);
+            createCashAccount.TabIndex = 11;
+            createCashAccount.Text = "Создать счет";
+            createCashAccount.UseVisualStyleBackColor = true;
+            createCashAccount.Click += CreateCashAccount_Click;
             // 
-            // button1
+            // ReplenishmentCashAccountButton
             // 
-            button1.Location = new Point(40, 519);
-            button1.Name = "button1";
-            button1.Size = new Size(292, 23);
-            button1.TabIndex = 7;
-            button1.Text = "Пополнить счет";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += Button1_Click;
+            ReplenishmentCashAccountButton.Location = new Point(40, 519);
+            ReplenishmentCashAccountButton.Name = "ReplenishmentCashAccountButton";
+            ReplenishmentCashAccountButton.Size = new Size(292, 23);
+            ReplenishmentCashAccountButton.TabIndex = 7;
+            ReplenishmentCashAccountButton.Text = "Пополнить счет";
+            ReplenishmentCashAccountButton.UseVisualStyleBackColor = true;
+            ReplenishmentCashAccountButton.Click += ReplenishmentCashAccountButton_Click;
             // 
-            // EnterForm
+            // UsersPersonalAccount
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(984, 661);
+            ClientSize = new Size(1094, 661);
             Controls.Add(tabControl1);
             Controls.Add(exitButton);
-            Name = "EnterForm";
+            Name = "UsersPersonalAccount";
             Text = "Личный кабинет";
             Load += EnterForm_Load;
             tabControl1.ResumeLayout(false);
@@ -559,11 +642,11 @@
         private Label label12;
         private Label label11;
         private Label historyLebel;
-        private Button button1;
+        private Button ReplenishmentCashAccountButton;
         private Label eurLebel;
         private Label usdLebel;
         private Label rubLebel;
-        private Button createAccount;
+        private Button createCashAccount;
         private Button moneyTransferButton;
         private Button searchButton;
         private DataGridView historyOperationDataGridView;
@@ -577,5 +660,12 @@
         private TabControl tabControl2;
         private TabPage tabPage3;
         private TabPage tabPage4;
+        private Label errorSurname;
+        private Label errorName;
+        private Label errorEmail;
+        private Label errorPassword;
+        private Label errorLogin;
+        private Label errorPhoneNumber;
+        private Label errorAge;
     }
 }

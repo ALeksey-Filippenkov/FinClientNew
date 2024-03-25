@@ -37,3 +37,4 @@ G:\FinClientNew\FinCommon\obj\Debug\net8.0\refint\FinCommon.dll
 G:\FinClientNew\FinCommon\obj\Debug\net8.0\FinCommon.pdb
 G:\FinClientNew\FinCommon\obj\Debug\net8.0\FinCommon.genruntimeconfig.cache
 G:\FinClientNew\FinCommon\obj\Debug\net8.0\ref\FinCommon.dll
+G:\FinClientNew\FinCommon\obj\Debug\net8.0\FinCommon.sourcelink.json

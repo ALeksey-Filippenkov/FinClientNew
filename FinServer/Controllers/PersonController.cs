@@ -1,9 +1,4 @@
-﻿using FinCommon.DTO;
-using FinServer.DbModels;
-using FinServer.Services;
-using Microsoft.AspNetCore.Mvc;
-
-namespace FinServer.Controllers
+﻿namespace FinServer.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -17,28 +12,27 @@ namespace FinServer.Controllers
         }
 
         [HttpPost("Login")]
-        public ResultDTO Authorization([FromBody] LoginDTO dto)
+        public IActionResult Login([FromBody] LoginInputDataDTO dto)
         {
-            return _personService.Verification(dto);
-        }
-
-
-        [HttpGet( "UserData/{id}")]
-        public DbPerson GetUserData(Guid id)
-        {
-            return _personService.GetDB(id);
+            return dto == null ? BadRequest() : Ok(_personService.Verification(dto));
         }
 
         [HttpPost("Registration")]
-        public ResultDTO Registration([FromBody] UserDataDTO dto)
+        public IActionResult Registration([FromBody] UserDataDTO dto)
         {
-           return _personService.CheckingTheEnteredData(dto);
+            return dto == null ? BadRequest() : Ok(_personService.CheckingTheEnteredData(dto));
         }
 
-        [HttpPut("PutUserData/{id}")]
-        public ResultDTO PutUserData(Guid id, PutUserDataDTO dto)
+        [HttpPut("UpdateUsersPersonalData/{id}")]
+        public IActionResult ChangeUsersPersonalData([FromRoute] Guid id, [FromBody] UserDataDTO dto)
         {
-            return _personService.CheckingPutTheEnteredData(id, dto);
+            return dto == null ? BadRequest() : Ok (_personService.CheckingTheEnteredData(id, dto));
+        }
+
+        [HttpGet( "UserData/{id}")]
+        public DbPerson GetUserData([FromRoute] Guid id)
+        {
+            return _personService.SearchUserData(id);
         }
     }
 }

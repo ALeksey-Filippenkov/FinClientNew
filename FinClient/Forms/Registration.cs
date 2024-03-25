@@ -1,10 +1,4 @@
-﻿using FinCommon.DTO;
-using FinCommon.Models;
-using System.Net.Http.Json;
-using System.Text;
-using System.Text.Json;
-
-namespace FinClient.Forms
+﻿namespace FinClient.Forms
 {
     public partial class Registration : Form
     {
@@ -21,36 +15,98 @@ namespace FinClient.Forms
                 Surname = surnameInput.Text,
                 Age = ageInput.Text,
                 City = cityInput.Text,
-                Adress = adressInput.Text,
+                Address = adressInput.Text,
                 PhoneNumber = phoneInput.Text,
-                EmailAdress = emailInput.Text,
+                EmailAddress = emailInput.Text,
                 Login = loginInput.Text,
                 Password = passwordInput.Text,
                 IsBanned = false
             };
 
             using var httpClient = new HttpClient();
-            var response = await httpClient.PostAsync(ServerConst.URL + "Person/Registration", ToBody(dto));
+            var response = await httpClient.PostAsync(ServerConst.URL + "Person/Registration", ServerToBody.ToBody(dto));
 
-            var result = await response.Content.ReadFromJsonAsync<ResultDTO>();
+            var validationResult = await response.Content.ReadFromJsonAsync<ValidationRegistrationResultDTO>();
 
-            if (result.IsSuccess == false)
+            if (response.StatusCode == HttpStatusCode.BadRequest)
             {
-                MessageBox.Show(result.Message);
+                this.AutoSize = true;
+
+                if (validationResult.Errors.ContainsKey("Name"))
+                {
+                    errorAge.Visible = true;
+                    foreach (var item in validationResult.Errors["Name"])
+                    {
+                        errorName.Text = $"{item}\n\n";
+                    }
+                }
+
+                if (validationResult.Errors.ContainsKey("Surname"))
+                {
+                    errorAge.Visible = true;
+                    foreach (var item in validationResult.Errors["Surname"])
+                    {
+                        errorSurname.Text = $"{item}\n\n";
+                    }
+                }
+
+                if (validationResult.Errors.ContainsKey("Age"))
+                {
+                    errorAge.Visible = true;
+                    foreach (var item in validationResult.Errors["Age"])
+                    {
+                        errorAge.Text = $"{item}\n\n";
+                    }
+                }
+
+                if (validationResult.Errors.ContainsKey("PhoneNumber"))
+                {
+                    errorPhoneNumber.Visible = true;
+                    foreach (var item in validationResult.Errors["PhoneNumber"])
+                    {
+                        errorPhoneNumber.Text = $"{item}\n\n";
+                    }
+                }
+
+                if (validationResult.Errors.ContainsKey("EmailAddress"))
+                {
+                    errorEmail.Visible = true;
+                    foreach (var item in validationResult.Errors["EmailAddress"])
+                    {
+                        errorPhoneNumber.Text = $"{item}\n\n";
+                    }
+                }
+
+                if (validationResult.Errors.ContainsKey("Login"))
+                {
+                    errorLogin.Visible = true;
+                    foreach (var item in validationResult.Errors["Login"])
+                    {
+                        errorLogin.Text = $"{item}\n\n";
+                    }
+                }
+
+                if (validationResult.Errors.ContainsKey("Password"))
+                {
+                    errorPassword.Visible = true;
+                    foreach (var item in validationResult.Errors["Password"])
+                    {
+                        errorPassword.Text = $"{item}\n\n";
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Поздравляем! Вы успешно прошли регистрацию");
-                Close();
+                if (!validationResult.IsSuccess)
+                {
+                    MessageBox.Show(validationResult.Message["LoginError"]);
+                }
+                else
+                {
+                    MessageBox.Show(validationResult.Message["Congratulations"]);
+                    Close();
+                }
             }
-        }
- 
-        public StringContent ToBody(object model)
-        {
-            return new(
-                JsonSerializer.Serialize(model),
-                Encoding.UTF8,
-                "application/json");
         }
 
         private void BackButton_Click(object sender, EventArgs e)

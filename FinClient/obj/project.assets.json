@@ -1671,6 +1671,25 @@
         "runtime": {
           "bin/placeholder/FinCommon.dll": {}
         }
+      },
+      "FinServer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "FinCommon": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "8.0.2",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2",
+          "Swashbuckle.AspNetCore": "6.5.0"
+        },
+        "compile": {
+          "bin/placeholder/FinServer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FinServer.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -4650,11 +4669,17 @@
       "type": "project",
       "path": "../FinCommon/FinCommon.csproj",
       "msbuildProject": "../FinCommon/FinCommon.csproj"
+    },
+    "FinServer/1.0.0": {
+      "type": "project",
+      "path": "../FinServer/FinServer.csproj",
+      "msbuildProject": "../FinServer/FinServer.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
       "FinCommon >= 1.0.0",
+      "FinServer >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 8.0.2",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.2",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.2",
@@ -4697,6 +4722,9 @@
           "projectReferences": {
             "G:\\FinClientNew\\FinCommon\\FinCommon.csproj": {
               "projectPath": "G:\\FinClientNew\\FinCommon\\FinCommon.csproj"
+            },
+            "G:\\FinClientNew\\FinServer\\FinServer.csproj": {
+              "projectPath": "G:\\FinClientNew\\FinServer\\FinServer.csproj"
             }
           }
         }
@@ -4760,7 +4788,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

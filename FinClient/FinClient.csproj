@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FinCommon\FinCommon.csproj" />
+    <ProjectReference Include="..\FinServer\FinServer.csproj" />
   </ItemGroup>
 
 </Project>
