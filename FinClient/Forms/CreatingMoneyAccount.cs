@@ -1,4 +1,8 @@
-﻿namespace FinancialApp.Forms
+﻿using System.Net.Http.Json;
+using FinCommon.DTO;
+using FinCommon.Models;
+
+namespace FinancialApp.Forms
 {
     public partial class CreatingMoneyAccount : Form
     {

@@ -253,3 +253,4 @@ G:\FinClientNew\FinClient\bin\Debug\net8.0-windows\FinServer.dll
 G:\FinClientNew\FinClient\bin\Debug\net8.0-windows\FinServer.pdb
 G:\FinClientNew\FinClient\obj\Debug\net8.0-windows\FinClient.Forms.MoneyTransfer.resources
 G:\FinClientNew\FinClient\obj\Debug\net8.0-windows\FinClient.Forms.AuthorizationForm.resources
+G:\FinClientNew\FinClient\obj\Debug\net8.0-windows\FinancialApp.Forms.OperationSearch.resources

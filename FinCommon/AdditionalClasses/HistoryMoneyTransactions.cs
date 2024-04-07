@@ -2,7 +2,7 @@
 {
     public class HistoryMoneyTransactions
     {
-        public DateOnly DateOperation { get; set; }
+        public DateTime DateOperation { get; set; }
 
         public string SendersName { get; set; }
 
@@ -13,5 +13,6 @@
         public double Money { get; set; }
 
         public string CurrencyType { get; set; }
+
     }
 }

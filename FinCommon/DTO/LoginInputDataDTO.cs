@@ -2,6 +2,9 @@
 
 namespace FinCommon.DTO
 {
+    /// <summary>
+    /// Модель для авторизации пользователя
+    /// </summary>
     public class LoginInputDataDTO
     {
         [Required(ErrorMessage = @"Логин не может быть пустым")]

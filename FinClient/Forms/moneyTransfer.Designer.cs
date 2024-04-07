@@ -48,6 +48,9 @@
             moneyTextBox = new TextBox();
             label5 = new Label();
             label6 = new Label();
+            PhoneNumberError = new Label();
+            CurrencyTypeError = new Label();
+            MoneyError = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -136,6 +139,9 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(MoneyError);
+            tabPage1.Controls.Add(CurrencyTypeError);
+            tabPage1.Controls.Add(PhoneNumberError);
             tabPage1.Controls.Add(label1);
             tabPage1.Controls.Add(transferButton);
             tabPage1.Controls.Add(phoneNumerTransferInput);
@@ -254,6 +260,36 @@
             label6.TabIndex = 11;
             label6.Text = "Выберите счет для списания";
             // 
+            // PhoneNumberError
+            // 
+            PhoneNumberError.AutoSize = true;
+            PhoneNumberError.Location = new Point(431, 80);
+            PhoneNumberError.Name = "PhoneNumberError";
+            PhoneNumberError.Size = new Size(13, 15);
+            PhoneNumberError.TabIndex = 16;
+            PhoneNumberError.Text = "0";
+            PhoneNumberError.Visible = false;
+            // 
+            // CurrencyTypeError
+            // 
+            CurrencyTypeError.AutoSize = true;
+            CurrencyTypeError.Location = new Point(431, 172);
+            CurrencyTypeError.Name = "CurrencyTypeError";
+            CurrencyTypeError.Size = new Size(13, 15);
+            CurrencyTypeError.TabIndex = 17;
+            CurrencyTypeError.Text = "0";
+            CurrencyTypeError.Visible = false;
+            // 
+            // MoneyError
+            // 
+            MoneyError.AutoSize = true;
+            MoneyError.Location = new Point(431, 281);
+            MoneyError.Name = "MoneyError";
+            MoneyError.Size = new Size(13, 15);
+            MoneyError.TabIndex = 18;
+            MoneyError.Text = "0";
+            MoneyError.Visible = false;
+            // 
             // MoneyTransfer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -293,5 +329,8 @@
         private Label label7;
         private Button exchangeButton;
         private LinkLabel linkLabel1;
+        private Label PhoneNumberError;
+        private Label MoneyError;
+        private Label CurrencyTypeError;
     }
 }

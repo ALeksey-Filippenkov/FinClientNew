@@ -1,4 +1,12 @@
-﻿namespace FinServer.Services
+﻿using FinCommon.DTO;
+using FinServer.AdditionalClasses;
+using FinServer.DbModels;
+using FinServer.Enum;
+using System.Net;
+using System.Xml.Linq;
+using FinServer.GeneralMethodsServer;
+
+namespace FinServer.Services
 {
     public class PersonMoneyService
     {
@@ -55,7 +63,7 @@
                 };
             }
 
-            var moneyAccount = CommonMethod.GetSearchAccountOwner(dto, _context);
+            var moneyAccount = CommonMethodServer.GetSearchAccountOwner(dto.Index, dto.PersonId, _context);
             if (moneyAccount == null)
             {
                 return new ValidationMoneyReplenishmentDTO
@@ -68,9 +76,7 @@
             return AddingMoneyToTheAccount(dto, moneyAccount, moneyDouble);
         }
 
-        public ValidationMoneyReplenishmentDTO AddingMoneyToTheAccount(MoneyAccountDetailsDTO dto,
-            DbPersonMoney moneyAccount,
-            double moneyDouble)
+        public ValidationMoneyReplenishmentDTO AddingMoneyToTheAccount(MoneyAccountDetailsDTO dto, DbPersonMoney moneyAccount, double moneyDouble)
         {
             moneyAccount.Balance += moneyDouble;
             AddingMoneyToTheHistory(dto, moneyDouble);
@@ -83,7 +89,7 @@
             };
         }
 
-        public void AddingMoneyToTheHistory(MoneyAccountDetailsDTO dto, double moneyDouble)
+        private void AddingMoneyToTheHistory(MoneyAccountDetailsDTO dto, double moneyDouble)
         {
             var historyTransfer = new DbHistoryTransfer
             {
@@ -123,42 +129,7 @@
 
             return balance;
         }
-
-        public TransferHistoryDataDTO GetHistoryTransfer(Guid id)
-        {
-            var historyTransfers = CommonMethod.GetHistoryTransfer(id, _context);
-
-            var transferHistoryData = new TransferHistoryDataDTO
-            {
-                HistoryTransfers = new List<HistoryMoneyTransactions>()
-            };
-
-            var historyMoneyTransactions = new HistoryMoneyTransactions();
-
-            foreach (var transferItem in historyTransfers)
-            {
-                historyMoneyTransactions.DateOperation = DateOnly.FromDateTime(transferItem.DateTime);
-                historyMoneyTransactions.CurrencyType = transferItem.Type.ToString();
-                historyMoneyTransactions.Money = transferItem.MoneyTransfer;
-                historyMoneyTransactions.TypeAction = TypeOperation.GetTypeOfOperation(transferItem.OperationType);
-
-                var personSender = _context.Persons.First(p => p.Id == transferItem.SenderId);
-                historyMoneyTransactions.SendersName = personSender.Name;
-
-                if (transferItem.OperationType == TypeOfOperation.moneyTransfer)
-                {
-                    var personRecipient = _context.Persons.First(p => p.Id == transferItem.RecipientId);
-                    historyMoneyTransactions.RecipientsName = personRecipient.Name;
-                }
-
-                transferHistoryData.HistoryTransfers.Add(historyMoneyTransactions);
-            }
-            return transferHistoryData;
-        }
-
-
-
-
+  
         public ExchangeRateCBDTO GetExchangeRateCB()
         {
             var exchangeRateCB = new ExchangeRateCBDTO();
