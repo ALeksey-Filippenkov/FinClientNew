@@ -3,17 +3,21 @@
   "WorkspaceRootPath": "G:\\FinClientNew\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0FE9F246-840F-4A1F-92EE-958545499E60}|FinClient\\FinClient.csproj|g:\\finclientnew\\finclient\\forms\\registration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0FE9F246-840F-4A1F-92EE-958545499E60}|FinClient\\FinClient.csproj|solutionrelative:finclient\\forms\\registration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E8CCA6D9-6E48-4A59-BE67-438B79685D64}|FinServer\\FinServer.csproj|g:\\finclientnew\\finserver\\services\\personmoneyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8CCA6D9-6E48-4A59-BE67-438B79685D64}|FinServer\\FinServer.csproj|solutionrelative:finserver\\services\\personmoneyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FE9F246-840F-4A1F-92EE-958545499E60}|FinClient\\FinClient.csproj|g:\\finclientnew\\finclient\\forms\\moneytransfer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FE9F246-840F-4A1F-92EE-958545499E60}|FinClient\\FinClient.csproj|solutionrelative:finclient\\forms\\moneytransfer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 1,
+      "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 230,
+          "DockedWidth": 200,
           "SelectedChildIndex": 8,
           "Children": [
             {
@@ -51,20 +55,43 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Registration.cs",
-              "DocumentMoniker": "G:\\FinClientNew\\FinClient\\Forms\\Registration.cs",
-              "RelativeDocumentMoniker": "FinClient\\Forms\\Registration.cs",
-              "ToolTip": "G:\\FinClientNew\\FinClient\\Forms\\Registration.cs",
-              "RelativeToolTip": "FinClient\\Forms\\Registration.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "PersonMoneyService.cs",
+              "DocumentMoniker": "G:\\FinClientNew\\FinServer\\Services\\PersonMoneyService.cs",
+              "RelativeDocumentMoniker": "FinServer\\Services\\PersonMoneyService.cs",
+              "ToolTip": "G:\\FinClientNew\\FinServer\\Services\\PersonMoneyService.cs*",
+              "RelativeToolTip": "FinServer\\Services\\PersonMoneyService.cs*",
+              "ViewState": "AQIAANsAAAAAAAAAAAAmwP8AAABMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-25T19:36:43.689Z",
+              "WhenOpened": "2024-05-04T13:31:02.811Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MoneyTransfer.cs",
+              "DocumentMoniker": "G:\\FinClientNew\\FinClient\\Forms\\MoneyTransfer.cs",
+              "RelativeDocumentMoniker": "FinClient\\Forms\\MoneyTransfer.cs",
+              "ToolTip": "G:\\FinClientNew\\FinClient\\Forms\\MoneyTransfer.cs",
+              "RelativeToolTip": "FinClient\\Forms\\MoneyTransfer.cs",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAmwH4AAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-04T13:19:03.926Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedHeight": 48,
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1883,
           "SelectedChildIndex": -1,
           "Children": [
             {

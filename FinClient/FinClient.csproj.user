@@ -7,6 +7,9 @@
     <Compile Update="Forms\MoneyTransfer.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\OperationSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\ReplenishmentCashAccount.cs">
       <SubType>Form</SubType>
     </Compile>

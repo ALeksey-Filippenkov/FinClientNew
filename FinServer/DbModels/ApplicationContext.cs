@@ -1,4 +1,6 @@
-﻿namespace FinServer.DbModels
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace FinServer.DbModels
 {
     public class ApplicationContext: DbContext
     {

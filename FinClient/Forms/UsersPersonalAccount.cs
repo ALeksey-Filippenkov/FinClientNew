@@ -1,17 +1,23 @@
 ﻿using FinClient.Forms;
+using FinClient.GeneralMethodsClient;
+using FinCommon.DTO;
+using FinCommon.Models;
+using FinServer.AdditionalClasses;
+using System.Net.Http.Json;
 
 namespace FinancialApp.Forms
 {
     public partial class UsersPersonalAccount : Form
     {
         private readonly Guid _id;
-        private readonly Form _form;
+        private readonly AuthorizationForm _authorizationForm;
+        private List<HistoryMoneyTransactions> _historyOperation;
 
-        public UsersPersonalAccount(Guid id, Form form)
+        public UsersPersonalAccount(Guid id, AuthorizationForm authorizationForm)
         {
             InitializeComponent();
             _id = id;
-            _form = form;
+            _authorizationForm = authorizationForm;
         }
 
         private async void EnterForm_Load(object sender, EventArgs e)
@@ -38,101 +44,70 @@ namespace FinancialApp.Forms
 
         private async void SaveLKButton_Click(object sender, EventArgs e)
         {
-            var dto = new UserDataDTO()
+            errorAge.Visible = false;
+            errorPhoneNumber.Visible = false;
+            errorEmail.Visible = false;
+            errorLogin.Visible = false;
+            errorPassword.Visible = false;
+            errorSurname.Visible = false;
+            errorName.Visible = false;
+
+            var ageValue = int.TryParse(age.Text, out var ageInt);
+            if (!ageValue)
             {
-                Id = _id,
-                Name = name.Text,
-                Surname = surname.Text,
-                Age = age.Text,
-                City = city.Text,
-                Address = adress.Text,
-                PhoneNumber = phone.Text,
-                EmailAddress = email.Text,
-                Login = login.Text,
-                Password = password.Text,
-            };
-
-            using var httpClient = new HttpClient();
-            var response = await httpClient.PutAsync(ServerConst.URL + $"Person/UpdateUsersPersonalData", ServerToBody.ToBody(dto));
-
-            var validationResult = await response.Content.ReadFromJsonAsync<ValidationRegistrationResultDTO>();
-
-            MessageBox.Show(response.Content.ToString());
-
-            if (response.StatusCode == HttpStatusCode.BadRequest)
-            {
-
-                if (validationResult.Errors.ContainsKey("Name"))
-                {
-                    errorAge.Visible = true;
-                    foreach (var item in validationResult.Errors["Name"])
-                    {
-                        errorName.Text = $"{item}\n\n";
-                    }
-                }
-
-                if (validationResult.Errors.ContainsKey("Surname"))
-                {
-                    errorAge.Visible = true;
-                    foreach (var item in validationResult.Errors["Surname"])
-                    {
-                        errorSurname.Text = $"{item}\n\n";
-                    }
-                }
-
-                if (validationResult.Errors.ContainsKey("Age"))
-                {
-                    errorAge.Visible = true;
-                    foreach (var item in validationResult.Errors["Age"])
-                    {
-                        errorAge.Text = $"{item}\n\n";
-                    }
-                }
-
-                if (validationResult.Errors.ContainsKey("PhoneNumber"))
-                {
-                    errorPhoneNumber.Visible = true;
-                    foreach (var item in validationResult.Errors["PhoneNumber"])
-                    {
-                        errorPhoneNumber.Text = $"{item}\n\n";
-                    }
-                }
-
-                if (validationResult.Errors.ContainsKey("EmailAddress"))
-                {
-                    errorEmail.Visible = true;
-                    foreach (var item in validationResult.Errors["EmailAddress"])
-                    {
-                        errorPhoneNumber.Text = $"{item}\n\n";
-                    }
-                }
-
-                if (validationResult.Errors.ContainsKey("Login"))
-                {
-                    errorLogin.Visible = true;
-                    foreach (var item in validationResult.Errors["Login"])
-                    {
-                        errorLogin.Text = $"{item}\n\n";
-                    }
-                }
-
-                if (validationResult.Errors.ContainsKey("Login"))
-                {
-                    errorPassword.Visible = true;
-                    foreach (var item in validationResult.Errors["Password"])
-                    {
-                        errorPassword.Text = $"{item}\n\n";
-                    }
-                }
+                errorAge.Visible = true;
+                errorAge.Text = @"В поле ""Возраст"" должно быть введено число и оно не может быть пустым.";
+                this.AutoSize = true;
             }
-            if (!validationResult.IsSuccess)
+
+            var phoneNumberValue = int.TryParse(phone.Text, out var phoneNumberInt);
+            if (!phoneNumberValue)
             {
-                MessageBox.Show(validationResult.Message["LoginError"]);
+                errorPhoneNumber.Visible = true;
+                errorPhoneNumber.Text = @"В поле ""Номер телефона"" должно быть введено число и оно не может быть пустым.";
+                this.AutoSize = true;
             }
-            else
+
+            if (ageValue && phoneNumberValue)
             {
-                MessageBox.Show(validationResult.Message["Congratulations"]);
-                Close();
+                var dto = new UserDataDTO()
+                {
+                    Id = _id,
+                    Name = name.Text,
+                    Surname = surname.Text,
+                    Age = ageInt,
+                    City = city.Text,
+                    Address = adress.Text,
+                    PhoneNumber = phoneNumberInt,
+                    EmailAddress = email.Text,
+                    Login = login.Text,
+                    Password = password.Text,
+                };
+
+                using var httpClient = new HttpClient();
+                var response = await httpClient.PutAsync(ServerConst.URL + $"Person/UpdateUsersPersonalData", ServerToBody.ToBody(dto));
+
+                var validationResult = await response.Content.ReadFromJsonAsync<ValidationRegistrationResultDTO>();
+
+                if (validationResult.Status == 400 || !validationResult.IsSuccess)
+                {
+                    var formDataClient = new FormUsersPersonalDataClient
+                    {
+                        ErrorName = errorName,
+                        ErrorSurname = errorSurname,
+                        ErrorAge = errorAge,
+                        ErrorPhoneNumber = errorPhoneNumber,
+                        ErrorEmail = errorEmail,
+                        ErrorLogin = errorLogin,
+                        ErrorPassword = errorPassword,
+                    };
+                    CommonMethodClient.ShowErrorsPersonData(formDataClient, validationResult);
+                }
+                else
+                {
+                    MessageBox.Show(validationResult.Message["Congratulations"]);
+                    Close();
+                }
             }
         }
 
@@ -146,7 +121,7 @@ namespace FinancialApp.Forms
                 MessageBoxDefaultButton.Button1,
                 MessageBoxOptions.DefaultDesktopOnly);
             if (result != DialogResult.Yes) return;
-            _form.Show();
+            _authorizationForm.Show();
             Close();
         }
 
@@ -187,14 +162,14 @@ namespace FinancialApp.Forms
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            //var operationSearch = new OperationSearch(_db, _id, _context);
-            //operationSearch.Show();
+            var operationSearch = new OperationSearch(_id);
+            operationSearch.Show();
         }
 
-        private void HistoryOperationExcel_Click(object sender, EventArgs e)
+        private async void HistoryOperationExcel_Click(object sender, EventArgs e)
         {
-            //var newExcel = new DataOutputInExcel(_db, _context);
-            //newExcel.GetDataOutputInExcel(CommonMethod.GetHistoryTransfer(_db, _id, _context));
+            var newExcel = new DataOutputInExcel();
+            newExcel.GetDataOutputInExcel(_historyOperation);
         }
 
         private void TabPage3_Click(object sender, EventArgs e)
@@ -214,14 +189,16 @@ namespace FinancialApp.Forms
             historyOperationDataGridView.Rows.Clear();
 
             using var httpClient = new HttpClient();
-            var response = await httpClient.GetAsync(ServerConst.URL + $"PersonMoney/UserTransfer/{_id}");
+            var response = await httpClient.GetAsync(ServerConst.URL + $"OperationHistory/UserTransfer/{_id}");
             var result = await response.Content.ReadFromJsonAsync<TransferHistoryDataDTO>();
+            result.HistoryTransfers.Sort((x,y) => y.DateOperation.CompareTo(x.DateOperation));
+            _historyOperation = result.HistoryTransfers;
 
             foreach (var transferItem in result.HistoryTransfers)
             {
                 var index = historyOperationDataGridView.Rows.Add();
 
-                historyOperationDataGridView.Rows[index].Cells[0].Value = transferItem.DateOperation;
+                historyOperationDataGridView.Rows[index].Cells[0].Value = DateOnly.FromDateTime(transferItem.DateOperation);
                 historyOperationDataGridView.Rows[index].Cells[3].Value = transferItem.CurrencyType;
                 historyOperationDataGridView.Rows[index].Cells[4].Value = transferItem.Money;
 

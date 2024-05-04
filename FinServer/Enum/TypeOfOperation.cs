@@ -4,7 +4,7 @@
     {
         refill = 0,
         moneyTransfer = 1,
-        exchange = 2
+        exchange = 2,
     }
 
     public static class TypeOperation

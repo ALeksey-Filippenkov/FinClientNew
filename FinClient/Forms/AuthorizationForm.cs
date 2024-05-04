@@ -1,3 +1,8 @@
+using FinancialApp.Forms;
+using FinCommon.DTO;
+using FinCommon.Models;
+using System.Net.Http.Json;
+
 namespace FinClient.Forms
 {
     public partial class AuthorizationForm : Form
@@ -20,40 +25,9 @@ namespace FinClient.Forms
 
             var authorizationResult = await response.Content.ReadFromJsonAsync<ValidationAuthorizationResultDTO>();
 
-            if (response.StatusCode == HttpStatusCode.BadRequest)
+            if (authorizationResult.Status == 400 || !authorizationResult.IsSuccess)
             {
-                if (authorizationResult.Errors.ContainsKey("Login"))
-                {
-                    foreach (var item in authorizationResult.Errors["Login"])
-                    {
-                        MessageBox.Show($"{item}");
-                    }
-                }
-
-                if (authorizationResult.Errors.ContainsKey("Password"))
-                {
-                    foreach (var item in authorizationResult.Errors["Password"])
-                    {
-                        MessageBox.Show($"{item}");
-                    }
-                }
-            }
-            if (!authorizationResult.IsSuccess)
-            {
-                if (authorizationResult.Message.ContainsKey("SearchUserError"))
-                {
-                    MessageBox.Show($"{authorizationResult.Message["SearchUserError"]}");
-                }
-
-                if (authorizationResult.Message.ContainsKey("PasswordError"))
-                {
-                    MessageBox.Show($"{authorizationResult.Message["PasswordError"]}");
-                }
-
-                if (authorizationResult.Message.ContainsKey("UserIsBannedError"))
-                {
-                    MessageBox.Show($"{authorizationResult.Message["UserIsBannedError"]}");
-                }
+                GeneralMethodsClient.CommonMethodClient.ShowErrorAuthorizationForm(authorizationResult);
             }
             else
             {
