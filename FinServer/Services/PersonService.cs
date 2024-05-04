@@ -100,11 +100,11 @@ namespace FinServer.Services
             });
             _context.SaveChanges();
 
-            var Smtp = new SmtpClient("smtp-mail.outlook.com", 587);
+            var Smtp = new SmtpClient("smtp.yandex.ru", 587);
             Smtp.EnableSsl = true;
-            Smtp.Credentials = new NetworkCredential("fil_aleksey@hotmail.com", "xy7shebs1988");
+            Smtp.Credentials = new NetworkCredential("supermegapuperdengi@yandex.ru", "qezfmwmugcjliwod");
             var Message = new MailMessage();
-            Message.From = new MailAddress("fil_aleksey@hotmail.com");
+            Message.From = new MailAddress("supermegapuperdengi@yandex.ru");
             Message.To.Add(new MailAddress($"{dto.EmailAddress}"));
             Message.Subject = "Регистрация в приложении в супер пупер деньги! ";
             Message.Body = $"Поздравляем с успешной регистрацией в приложении супер пупер деньги!\nLogin: {dto.Login}\nPassword: {dto.Password}";
@@ -173,6 +173,28 @@ namespace FinServer.Services
             user.Password = dto.Password;
 
             _context.SaveChanges();
+
+            var smtp = new SmtpClient("smtp.yandex.ru", 587);
+            smtp.EnableSsl = true;
+            smtp.Credentials = new NetworkCredential("supermegapuperdengi@yandex.ru", "qezfmwmugcjliwod");
+            var message = new MailMessage();
+            message.From = new MailAddress("supermegapuperdengi@yandex.ru");
+            message.To.Add(new MailAddress($"{dto.EmailAddress}"));
+            message.Subject = "Изменение личных данных в приложении в супер пупер деньги! ";
+            message.Body = $"Поздравляем с успешным изменением личных данных!\nLogin: {dto.Login}\nPassword: {dto.Password}";
+
+            try
+            {
+                smtp.Send(message);
+            }
+            catch (SmtpFailedRecipientException e)
+            {
+                return new ValidationRegistrationResultDTO()
+                {
+                    IsSuccess = true,
+                    Message = new Dictionary<string, string>() { { "Congratulations", $"Поздравляем! Вы успешно изменили данные в личном кабинете!\nНе удалось отправить на электронную почту,\nс адресом {dto.EmailAddress}, напоминание с Логином и паролем.  " } }
+                };
+            }
 
             return new ValidationRegistrationResultDTO
             {

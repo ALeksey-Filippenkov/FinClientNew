@@ -11,6 +11,7 @@ namespace FinancialApp.Forms
     {
         private readonly Guid _id;
         private readonly AuthorizationForm _authorizationForm;
+        private List<HistoryMoneyTransactions> _historyOperation;
 
         public UsersPersonalAccount(Guid id, AuthorizationForm authorizationForm)
         {
@@ -165,10 +166,10 @@ namespace FinancialApp.Forms
             operationSearch.Show();
         }
 
-        private void HistoryOperationExcel_Click(object sender, EventArgs e)
+        private async void HistoryOperationExcel_Click(object sender, EventArgs e)
         {
-            //var newExcel = new DataOutputInExcel(_db, _context);
-            //newExcel.GetDataOutputInExcel(CommonMethod.GetHistoryTransfer(_db, _id, _context));
+            var newExcel = new DataOutputInExcel();
+            newExcel.GetDataOutputInExcel(_historyOperation);
         }
 
         private void TabPage3_Click(object sender, EventArgs e)
@@ -191,6 +192,7 @@ namespace FinancialApp.Forms
             var response = await httpClient.GetAsync(ServerConst.URL + $"OperationHistory/UserTransfer/{_id}");
             var result = await response.Content.ReadFromJsonAsync<TransferHistoryDataDTO>();
             result.HistoryTransfers.Sort((x,y) => y.DateOperation.CompareTo(x.DateOperation));
+            _historyOperation = result.HistoryTransfers;
 
             foreach (var transferItem in result.HistoryTransfers)
             {

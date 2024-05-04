@@ -152,7 +152,40 @@ namespace FinClient.GeneralMethodsClient
                 formData.MoneyTransfer.Visible = true;
                 formData.MoneyTransfer.Text = moneyTransferResult.Message["LackMoneyAccountError"];
             }
+        }
 
+        public static void ShowErrorMoneyExchange(ValidationMoneyExchangeResultDTO moneyExchangeResult,
+            FormMoneyExchangeClient formData)
+        {
+            if (moneyExchangeResult.Message.ContainsKey("The currency type for debiting is not selected"))
+            {
+                formData.DebitAccountError.Visible = true;
+                formData.DebitAccountError.Text = moneyExchangeResult.Message["The currency type for debiting is not selected"];
+            }
+
+            if (moneyExchangeResult.Message.ContainsKey("The type of currency to deposit is not selected"))
+            {
+                formData.ReplenishmentAccountError.Visible = true;
+                formData.ReplenishmentAccountError.Text = moneyExchangeResult.Message["The type of currency to deposit is not selected"];
+            }
+
+            if (moneyExchangeResult.Message.ContainsKey("DebitAccount"))
+            {
+                formData.DebitAccountError.Visible = true;
+                formData.DebitAccountError.Text = moneyExchangeResult.Message["DebitAccount"];
+            }
+
+            if (moneyExchangeResult.Message.ContainsKey("AccountForReplenishment"))
+            {
+                formData.ReplenishmentAccountError.Visible = true;
+                formData.ReplenishmentAccountError.Text = moneyExchangeResult.Message["AccountForReplenishment"];
+            }
+
+            if (moneyExchangeResult.Message.ContainsKey("MoneyError"))
+            {
+                formData.MoneyExchangeError.Visible = true;
+                formData.MoneyExchangeError.Text = moneyExchangeResult.Message["MoneyError"];
+            }
         }
     }
 }

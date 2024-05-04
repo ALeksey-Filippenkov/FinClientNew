@@ -57,5 +57,28 @@ namespace FinServer.Controllers
         {
             return _personMoneyService.GetExchangeRateCB();
         }
+
+        /// <summary>
+        /// Перевод денег другому лицу
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [HttpPut("MoneyTransfer")]
+        public ValidationMoneyTransferResultDTO MoneyTransfer([FromBody] MoneyTransferDTO dto)
+        {
+            return _personMoneyService.TransferMoneyAnotherUser(dto);
+        }
+
+        /// <summary>
+        /// Обмен денег
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [HttpPut("MoneyExchange")]
+        public ValidationMoneyExchangeResultDTO MoneyExchange([FromBody] MoneyExchangeDTO dto)
+        {
+            return _personMoneyService.ExchangeMoneyUser(dto);
+        }
+
     }
 }

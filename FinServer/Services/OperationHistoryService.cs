@@ -25,14 +25,14 @@ namespace FinServer.Services
 
             foreach (var transferItem in historyTransfers)
             {
-                var historyMoneyTransactions = new HistoryMoneyTransactions();
+                var historyMoneyTransactions = new HistoryMoneyTransactions
+                {
+                    DateOperation = transferItem.DateTime,
+                    CurrencyType = transferItem.Type.ToString(),
+                    Money = transferItem.MoneyTransfer,
+                    TypeAction = TypeOperation.GetTypeOfOperation(transferItem.OperationType)
+                };
 
-                historyMoneyTransactions.DateOperation = transferItem.DateTime;
-                historyMoneyTransactions.CurrencyType = transferItem.Type.ToString();
-                historyMoneyTransactions.Money = transferItem.MoneyTransfer;
-
-
-                historyMoneyTransactions.TypeAction = TypeOperation.GetTypeOfOperation(transferItem.OperationType);
 
                 var personSender = _context.Persons.First(p => p.Id == transferItem.SenderId);
                 historyMoneyTransactions.SendersName = personSender.Name;
@@ -48,11 +48,11 @@ namespace FinServer.Services
             return transferHistoryData;
         }
 
-        public FilteredUserTransactionHistoryDTO GetSearchOperationUserTransfer(SearchOperationDataDTO dto)
+        public TransferHistoryDataDTO GetSearchOperationUserTransfer(SearchOperationDataDTO dto)
         {
             var historyTransfers = CommonMethodServer.GetHistoryTransfer(dto.Id, _context);
 
-            var transferHistoryData = new FilteredUserTransactionHistoryDTO
+            var transferHistoryData = new TransferHistoryDataDTO
             {
                 HistoryTransfers = new List<HistoryMoneyTransactions>()
             };
@@ -61,7 +61,7 @@ namespace FinServer.Services
 
             if (historyTransfers.Count == 0)
             {
-                return new FilteredUserTransactionHistoryDTO()
+                return new TransferHistoryDataDTO()
                 {
                     IsSuccess = false,
                     Message = new Dictionary<string, string>() { {"OperationCountError", "У Вас еще небыло операций!" } }
@@ -70,13 +70,12 @@ namespace FinServer.Services
 
             if (dto.CurrencyTypeValue != CurrencyType.RUB.ToString() && dto.CurrencyTypeValue != CurrencyType.USD.ToString() && dto.CurrencyTypeValue != CurrencyType.EUR.ToString() && dto.CurrencyTypeValue != string.Empty)
             {
-                return new FilteredUserTransactionHistoryDTO()
+                return new TransferHistoryDataDTO()
                 {
                     IsSuccess = false,
                     Message = new Dictionary<string, string>() { { "CurrencyTypeError", $"Операций с типом валюты {dto.CurrencyTypeValue} не найдены!" } }
                 };
             }
-
 
             var searchPersonRecipientName = _context.Persons.FirstOrDefault(p => p.Name == dto.PersonRecipientName);
 
@@ -136,7 +135,7 @@ namespace FinServer.Services
 
             if (result == null)
             {
-                return new FilteredUserTransactionHistoryDTO()
+                return new TransferHistoryDataDTO()
                 {
                     IsSuccess = false,
                     Message = new Dictionary<string, string>(){{ "OperationsByNameError", $"Операций с пользователем {dto.PersonRecipientName} не найдены!" } }
@@ -145,7 +144,7 @@ namespace FinServer.Services
 
             if (result.Count == 0)
             {
-                return new FilteredUserTransactionHistoryDTO()
+                return new TransferHistoryDataDTO()
                 {
                     IsSuccess = false,
                     Message = new Dictionary<string, string>() { { "OperationsByDateError", $"{DateOnly.FromDateTime(dto.StartingDateSearch)} небыло произведено операций!"}}
@@ -154,14 +153,13 @@ namespace FinServer.Services
 
             foreach (var transferItem in result)
             {
-                var historyMoneyTransactions = new HistoryMoneyTransactions();
-
-                historyMoneyTransactions.DateOperation = transferItem.DateTime;
-                historyMoneyTransactions.CurrencyType = transferItem.Type.ToString();
-                historyMoneyTransactions.Money = transferItem.MoneyTransfer;
-
-
-                historyMoneyTransactions.TypeAction = TypeOperation.GetTypeOfOperation(transferItem.OperationType);
+                var historyMoneyTransactions = new HistoryMoneyTransactions
+                {
+                    DateOperation = transferItem.DateTime,
+                    CurrencyType = transferItem.Type.ToString(),
+                    Money = transferItem.MoneyTransfer,
+                    TypeAction = TypeOperation.GetTypeOfOperation(transferItem.OperationType)
+                };
 
                 var personSender = _context.Persons.First(p => p.Id == transferItem.SenderId);
                 historyMoneyTransactions.SendersName = personSender.Name;
@@ -176,6 +174,5 @@ namespace FinServer.Services
 
             return transferHistoryData;
         }
-
     }
 }

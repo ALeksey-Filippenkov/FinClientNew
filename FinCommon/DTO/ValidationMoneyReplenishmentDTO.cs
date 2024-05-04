@@ -18,7 +18,7 @@
         public bool IsSuccess { get; set; }
 
         /// <summary>
-        /// СОобщение о результате пополнения денег на счет
+        /// Сообщение о результате пополнения денег на счет
         /// </summary>
         public string Message { get; set; }
 

@@ -31,7 +31,7 @@ namespace FinServer.Controllers
         /// <param name="dto"></param>
         /// <returns></returns>
         [HttpPost("SearchUserOperation")]
-        public FilteredUserTransactionHistoryDTO SearchUserOperation([FromBody] SearchOperationDataDTO dto)
+        public TransferHistoryDataDTO SearchUserOperation([FromBody] SearchOperationDataDTO dto)
         {
             return _operationHistoryService.GetSearchOperationUserTransfer(dto);
         }

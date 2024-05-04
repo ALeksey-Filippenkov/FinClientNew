@@ -7,7 +7,7 @@
         TypeOfOperation = 2,
         CurrencyType = 3,
         Money = 4,
-        Recipient = 5
+        Recipient = 5,
     }
 
     public static class Headlines

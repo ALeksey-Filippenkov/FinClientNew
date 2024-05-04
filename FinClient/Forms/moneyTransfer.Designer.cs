@@ -38,7 +38,13 @@
             transferButton = new Button();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            MoneyError = new Label();
+            CurrencyTypeError = new Label();
+            PhoneNumberError = new Label();
             tabPage2 = new TabPage();
+            MoneyExchangeError = new Label();
+            ReplenishmentAccountError = new Label();
+            DebitAccountError = new Label();
             linkLabel1 = new LinkLabel();
             exchangeButton = new Button();
             label7 = new Label();
@@ -48,9 +54,6 @@
             moneyTextBox = new TextBox();
             label5 = new Label();
             label6 = new Label();
-            PhoneNumberError = new Label();
-            CurrencyTypeError = new Label();
-            MoneyError = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -157,8 +160,41 @@
             tabPage1.Text = "Перевод другому человеку";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // MoneyError
+            // 
+            MoneyError.AutoSize = true;
+            MoneyError.Location = new Point(431, 281);
+            MoneyError.Name = "MoneyError";
+            MoneyError.Size = new Size(13, 15);
+            MoneyError.TabIndex = 18;
+            MoneyError.Text = "0";
+            MoneyError.Visible = false;
+            // 
+            // CurrencyTypeError
+            // 
+            CurrencyTypeError.AutoSize = true;
+            CurrencyTypeError.Location = new Point(431, 172);
+            CurrencyTypeError.Name = "CurrencyTypeError";
+            CurrencyTypeError.Size = new Size(13, 15);
+            CurrencyTypeError.TabIndex = 17;
+            CurrencyTypeError.Text = "0";
+            CurrencyTypeError.Visible = false;
+            // 
+            // PhoneNumberError
+            // 
+            PhoneNumberError.AutoSize = true;
+            PhoneNumberError.Location = new Point(431, 80);
+            PhoneNumberError.Name = "PhoneNumberError";
+            PhoneNumberError.Size = new Size(13, 15);
+            PhoneNumberError.TabIndex = 16;
+            PhoneNumberError.Text = "0";
+            PhoneNumberError.Visible = false;
+            // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(MoneyExchangeError);
+            tabPage2.Controls.Add(ReplenishmentAccountError);
+            tabPage2.Controls.Add(DebitAccountError);
             tabPage2.Controls.Add(linkLabel1);
             tabPage2.Controls.Add(exchangeButton);
             tabPage2.Controls.Add(label7);
@@ -175,6 +211,36 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Обмен денег";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // MoneyExchangeError
+            // 
+            MoneyExchangeError.AutoSize = true;
+            MoneyExchangeError.Location = new Point(450, 264);
+            MoneyExchangeError.Name = "MoneyExchangeError";
+            MoneyExchangeError.Size = new Size(13, 15);
+            MoneyExchangeError.TabIndex = 20;
+            MoneyExchangeError.Text = "0";
+            MoneyExchangeError.Visible = false;
+            // 
+            // ReplenishmentAccountError
+            // 
+            ReplenishmentAccountError.AutoSize = true;
+            ReplenishmentAccountError.Location = new Point(257, 175);
+            ReplenishmentAccountError.Name = "ReplenishmentAccountError";
+            ReplenishmentAccountError.Size = new Size(13, 15);
+            ReplenishmentAccountError.TabIndex = 19;
+            ReplenishmentAccountError.Text = "0";
+            ReplenishmentAccountError.Visible = false;
+            // 
+            // DebitAccountError
+            // 
+            DebitAccountError.AutoSize = true;
+            DebitAccountError.Location = new Point(257, 75);
+            DebitAccountError.Name = "DebitAccountError";
+            DebitAccountError.Size = new Size(13, 15);
+            DebitAccountError.TabIndex = 18;
+            DebitAccountError.Text = "0";
+            DebitAccountError.Visible = false;
             // 
             // linkLabel1
             // 
@@ -260,36 +326,6 @@
             label6.TabIndex = 11;
             label6.Text = "Выберите счет для списания";
             // 
-            // PhoneNumberError
-            // 
-            PhoneNumberError.AutoSize = true;
-            PhoneNumberError.Location = new Point(431, 80);
-            PhoneNumberError.Name = "PhoneNumberError";
-            PhoneNumberError.Size = new Size(13, 15);
-            PhoneNumberError.TabIndex = 16;
-            PhoneNumberError.Text = "0";
-            PhoneNumberError.Visible = false;
-            // 
-            // CurrencyTypeError
-            // 
-            CurrencyTypeError.AutoSize = true;
-            CurrencyTypeError.Location = new Point(431, 172);
-            CurrencyTypeError.Name = "CurrencyTypeError";
-            CurrencyTypeError.Size = new Size(13, 15);
-            CurrencyTypeError.TabIndex = 17;
-            CurrencyTypeError.Text = "0";
-            CurrencyTypeError.Visible = false;
-            // 
-            // MoneyError
-            // 
-            MoneyError.AutoSize = true;
-            MoneyError.Location = new Point(431, 281);
-            MoneyError.Name = "MoneyError";
-            MoneyError.Size = new Size(13, 15);
-            MoneyError.TabIndex = 18;
-            MoneyError.Text = "0";
-            MoneyError.Visible = false;
-            // 
             // MoneyTransfer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -332,5 +368,8 @@
         private Label PhoneNumberError;
         private Label MoneyError;
         private Label CurrencyTypeError;
+        private Label DebitAccountError;
+        private Label MoneyExchangeError;
+        private Label ReplenishmentAccountError;
     }
 }

@@ -2,9 +2,6 @@
 
 namespace FinCommon.DTO
 {
-    /// <summary>
-    /// Модель для 
-    /// </summary>
     public class UserDataDTO
     {
         /// <summary>
