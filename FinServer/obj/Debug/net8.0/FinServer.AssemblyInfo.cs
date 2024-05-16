@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FinServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ee535a24112d306b3d3e9086945c895f9e47ddb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7184069bf83029dd92ecd6153dfef5e1550c71cd")]
 [assembly: System.Reflection.AssemblyProductAttribute("FinServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FinServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

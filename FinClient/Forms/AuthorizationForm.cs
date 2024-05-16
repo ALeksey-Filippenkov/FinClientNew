@@ -1,6 +1,7 @@
 using FinancialApp.Forms;
 using FinCommon.DTO;
 using FinCommon.Models;
+using FinServer.Enum;
 using System.Net.Http.Json;
 
 namespace FinClient.Forms
@@ -23,19 +24,27 @@ namespace FinClient.Forms
             using var httpClient = new HttpClient();
             var response = await httpClient.PostAsync(ServerConst.URL + "Person/Login", ServerToBody.ToBody(dto));
 
-            var authorizationResult = await response.Content.ReadFromJsonAsync<ValidationAuthorizationResultDTO>();
+            var authorizationResult = await response.Content.ReadFromJsonAsync<AuthorizationResultDTO>();
 
             if (authorizationResult.Status == 400 || !authorizationResult.IsSuccess)
             {
                 GeneralMethodsClient.CommonMethodClient.ShowErrorAuthorizationForm(authorizationResult);
             }
-            else
+            else if (authorizationResult.UserRole == (System.Enum)TheUsersRoleInTheProgram.User)
             {
-                var usersPersonalAccount = new UsersPersonalAccount(authorizationResult.idAccount, this);
+                var usersPersonalAccount = new UsersPersonalAccount(authorizationResult.IdAccount, this);
                 usersPersonalAccount.Show();
 
                 Hide();
             }
+            else if (authorizationResult.UserRole == (System.Enum)TheUsersRoleInTheProgram.Admin)
+            {
+                var isGeneralAdmin = false;
+                var administratorsPersonalAccount =
+                    new AdministratorsPersonalAccount(authorizationResult.IdAccount, this, isGeneralAdmin);
+                administratorsPersonalAccount.Show();
+            }
+
         }
 
         private void RegistrationButton_Click(object sender, EventArgs e)

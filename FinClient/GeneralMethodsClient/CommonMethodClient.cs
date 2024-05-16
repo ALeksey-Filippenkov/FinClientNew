@@ -81,7 +81,7 @@ namespace FinClient.GeneralMethodsClient
             }
         }
 
-        public static void ShowErrorAuthorizationForm(ValidationAuthorizationResultDTO authorizationResult)
+        public static void ShowErrorAuthorizationForm(AuthorizationResultDTO authorizationResult)
         {
             if (authorizationResult.Errors != null)
             {
