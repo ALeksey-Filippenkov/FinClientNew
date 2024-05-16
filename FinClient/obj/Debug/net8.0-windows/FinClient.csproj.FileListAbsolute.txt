@@ -257,3 +257,4 @@ G:\FinClientNew\FinClient\obj\Debug\net8.0-windows\FinancialApp.Forms.OperationS
 G:\FinClientNew\FinClient\obj\Debug\net8.0-windows\Interop.Microsoft.Office.Interop.Excel.dll
 G:\FinClientNew\FinClient\obj\Debug\net8.0-windows\Interop.Microsoft.Office.Interop.Access.Dao.dll
 G:\FinClientNew\FinClient\obj\Debug\net8.0-windows\FinClient.csproj.ResolveComReference.cache
+G:\FinClientNew\FinClient\obj\Debug\net8.0-windows\FinancialApp.Forms.AdministratorsPersonalAccount.resources

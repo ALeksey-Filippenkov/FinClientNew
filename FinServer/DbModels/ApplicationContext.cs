@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FinancialApp.DataBase.DbModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace FinServer.DbModels
 {
@@ -14,6 +15,8 @@ namespace FinServer.DbModels
         public  DbSet<DbPersonMoney> PersonMoneys { get; set; }
 
         public  DbSet<DbHistoryTransfer> HistoryTransfers { get; set; }
+
+        public  DbSet<DbAdmin> Admins { get; set; }
 
     }
 }

@@ -1,7 +1,9 @@
-﻿using FinCommon.DTO;
+﻿using FinancialApp.DataBase.DbModels;
+using FinCommon.DTO;
 using FinServer.DbModels;
-using System.Net.Mail;
+using FinServer.Enum;
 using System.Net;
+using System.Net.Mail;
 
 namespace FinServer.Services
 {
@@ -20,22 +22,47 @@ namespace FinServer.Services
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public ValidationAuthorizationResultDTO Verification(LoginInputDataDTO dto)
+        public AuthorizationResultDTO Verification(LoginInputDataDTO dto)
         {
             _searchAccount = _context.Persons.FirstOrDefault(e => e.Login == dto.Login);
-            
+
             if (_searchAccount == null)
             {
-                return new ValidationAuthorizationResultDTO
+                var searchAdmin = _context.Admins.FirstOrDefault(admin => admin.Login == dto.Login && admin.Password == dto.Password);
+
+                if (searchAdmin != null && searchAdmin.Login == dto.Login && searchAdmin.Password == dto.Password)
+                {
+                    return new AuthorizationResultDTO
+                    {
+                        IsSuccess = true,
+                        UserRole = TheUsersRoleInTheProgram.Admin,
+                        IdAccount = searchAdmin.Id,
+                    };
+                }
+
+                var generalAdmin = new DbAdmin() { Password = "admin", Login = "admin", Id = Guid.NewGuid() };
+
+                if (generalAdmin.Login == dto.Login && generalAdmin.Password == dto.Password)
+                {
+                    return new AuthorizationResultDTO
+                    {
+                        IsSuccess = true,
+                        UserRole = TheUsersRoleInTheProgram.SuperAdmin,
+                        IdAccount = generalAdmin.Id,
+                    };
+                }
+
+                return new AuthorizationResultDTO
                 {
                     IsSuccess = false,
-                    Message = new Dictionary<string, string>() { { "SearchUserError", "Пользователь с таким логином не найден" } }
+                    Message = new Dictionary<string, string>()
+                        { { "SearchUserError", "Пользователь с таким логином не найден" } }
                 };
             }
 
             if (_searchAccount.Password != dto.Password)
             {
-                return new ValidationAuthorizationResultDTO
+                return new AuthorizationResultDTO
                 {
                     IsSuccess = false,
                     Message = new Dictionary<string, string>() { { "PasswordError", "Не верный пароль" } }
@@ -44,17 +71,18 @@ namespace FinServer.Services
 
             if (_searchAccount.IsBanned)
             {
-                return new ValidationAuthorizationResultDTO
+                return new AuthorizationResultDTO
                 {
                     IsSuccess = false,
                     Message = new Dictionary<string, string>() { { "UserIsBannedError", "Пользователь забанен" } }
                 };
             }
 
-            return new ValidationAuthorizationResultDTO
+            return new AuthorizationResultDTO
             {
                 IsSuccess = true,
-                idAccount = _searchAccount.Id,
+                UserRole = TheUsersRoleInTheProgram.User,
+                IdAccount = _searchAccount.Id,
             };
         }
 
@@ -100,18 +128,12 @@ namespace FinServer.Services
             });
             _context.SaveChanges();
 
-            var Smtp = new SmtpClient("smtp.yandex.ru", 587);
-            Smtp.EnableSsl = true;
-            Smtp.Credentials = new NetworkCredential("supermegapuperdengi@yandex.ru", "qezfmwmugcjliwod");
-            var Message = new MailMessage();
-            Message.From = new MailAddress("supermegapuperdengi@yandex.ru");
-            Message.To.Add(new MailAddress($"{dto.EmailAddress}"));
-            Message.Subject = "Регистрация в приложении в супер пупер деньги! ";
-            Message.Body = $"Поздравляем с успешной регистрацией в приложении супер пупер деньги!\nLogin: {dto.Login}\nPassword: {dto.Password}";
-
             try
             {
-                Smtp.Send(Message);
+                var theSubjectOfTheLetter = "Регистрация в приложении в супер пупер деньги!";
+                var theBodyOfTheLetter = $"Поздравляем с успешной регистрацией в приложении супер пупер деньги!\nLogin: {dto.Login}\nPassword: {dto.Password}";
+                SendingAnEmail(dto, theSubjectOfTheLetter, theBodyOfTheLetter);
+
             }
             catch (SmtpFailedRecipientException e)
             {
@@ -173,19 +195,11 @@ namespace FinServer.Services
             user.Password = dto.Password;
 
             _context.SaveChanges();
-
-            var smtp = new SmtpClient("smtp.yandex.ru", 587);
-            smtp.EnableSsl = true;
-            smtp.Credentials = new NetworkCredential("supermegapuperdengi@yandex.ru", "qezfmwmugcjliwod");
-            var message = new MailMessage();
-            message.From = new MailAddress("supermegapuperdengi@yandex.ru");
-            message.To.Add(new MailAddress($"{dto.EmailAddress}"));
-            message.Subject = "Изменение личных данных в приложении в супер пупер деньги! ";
-            message.Body = $"Поздравляем с успешным изменением личных данных!\nLogin: {dto.Login}\nPassword: {dto.Password}";
-
             try
             {
-                smtp.Send(message);
+                string theSubjectOfTheLetter = "Изменение личных данных в приложении в супер пупер деньги! ";
+                string theBodyOfTheLetter = "$\"Поздравляем с успешным изменением личных данных!\\nLogin: {dto.Login}\\nPassword: {dto.Password}\"";
+                SendingAnEmail(dto, theSubjectOfTheLetter, theBodyOfTheLetter);
             }
             catch (SmtpFailedRecipientException e)
             {
@@ -201,6 +215,25 @@ namespace FinServer.Services
                 IsSuccess = true,
                 Message = new Dictionary<string, string> { { "Congratulations", "Данные успешно сохранены!" } }
             };
+        }
+
+        /// <summary>
+        /// Отправка электронного письма на указанный пользователем Email
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <param name="theSubjectOfTheLetter"></param>
+        /// <param name="theBodyOfTheLetter"></param>
+        private void SendingAnEmail(UserDataDTO dto, string theSubjectOfTheLetter, string theBodyOfTheLetter)
+        {
+            var smtp = new SmtpClient("smtp.yandex.ru", 587);
+            smtp.EnableSsl = true;
+            smtp.Credentials = new NetworkCredential("supermegapuperdengi@yandex.ru", "qezfmwmugcjliwod");
+            var message = new MailMessage();
+            message.From = new MailAddress("supermegapuperdengi@yandex.ru");
+            message.To.Add(new MailAddress($"{dto.EmailAddress}"));
+            message.Subject = theSubjectOfTheLetter;
+            message.Body = theBodyOfTheLetter;
+            smtp.Send(message);
         }
 
         /// <summary>

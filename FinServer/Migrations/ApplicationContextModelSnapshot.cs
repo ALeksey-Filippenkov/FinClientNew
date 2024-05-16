@@ -124,7 +124,7 @@ namespace FinServer.Migrations
                     b.Property<Guid?>("PersonId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("Type")
+                    b.Property<int>("Type")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -132,6 +132,33 @@ namespace FinServer.Migrations
                     b.HasIndex("PersonId");
 
                     b.ToTable("PersonMoneys");
+                });
+
+            modelBuilder.Entity("FinancialApp.DataBase.DbModels.DbAdmin", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Admins");
                 });
 
             modelBuilder.Entity("FinServer.DbModels.DbHistoryTransfer", b =>
