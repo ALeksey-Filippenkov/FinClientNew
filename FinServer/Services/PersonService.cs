@@ -35,7 +35,7 @@ namespace FinServer.Services
                     return new AuthorizationResultDTO
                     {
                         IsSuccess = true,
-                        UserRole = TheUsersRoleInTheProgram.Admin,
+                        UserRole = RoleInTheProgram.GetUsersRoleInTheProgram(TheUsersRoleInTheProgram.Admin),
                         IdAccount = searchAdmin.Id,
                     };
                 }
@@ -47,7 +47,7 @@ namespace FinServer.Services
                     return new AuthorizationResultDTO
                     {
                         IsSuccess = true,
-                        UserRole = TheUsersRoleInTheProgram.SuperAdmin,
+                        UserRole = RoleInTheProgram.GetUsersRoleInTheProgram(TheUsersRoleInTheProgram.SuperAdmin),
                         IdAccount = generalAdmin.Id,
                     };
                 }
@@ -81,7 +81,7 @@ namespace FinServer.Services
             return new AuthorizationResultDTO
             {
                 IsSuccess = true,
-                UserRole = TheUsersRoleInTheProgram.User,
+                UserRole = RoleInTheProgram.GetUsersRoleInTheProgram(TheUsersRoleInTheProgram.User),
                 IdAccount = _searchAccount.Id,
             };
         }

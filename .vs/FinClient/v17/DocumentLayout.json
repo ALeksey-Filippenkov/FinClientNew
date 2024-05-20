@@ -3,11 +3,22 @@
   "WorkspaceRootPath": "G:\\FinClientNew\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|G:\\FinClientNew\\FinServer\\Migrations\\20240516191330_AdminAdded.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FinServer\\Migrations\\20240516191330_AdminAdded.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E8CCA6D9-6E48-4A59-BE67-438B79685D64}|FinServer\\FinServer.csproj|G:\\FinClientNew\\finserver\\services\\adminservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8CCA6D9-6E48-4A59-BE67-438B79685D64}|FinServer\\FinServer.csproj|solutionrelative:finserver\\services\\adminservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0FE9F246-840F-4A1F-92EE-958545499E60}|FinClient\\FinClient.csproj|g:\\finclientnew\\finclient\\forms\\administratorspersonalaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0FE9F246-840F-4A1F-92EE-958545499E60}|FinClient\\FinClient.csproj|g:\\finclientnew\\finclient\\forms\\showuserinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FE9F246-840F-4A1F-92EE-958545499E60}|FinClient\\FinClient.csproj|solutionrelative:finclient\\forms\\showuserinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FE9F246-840F-4A1F-92EE-958545499E60}|FinClient\\FinClient.csproj|G:\\FinClientNew\\finclient\\forms\\showuserinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0FE9F246-840F-4A1F-92EE-958545499E60}|FinClient\\FinClient.csproj|solutionrelative:finclient\\forms\\showuserinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FinServerDb/True/SqlTable/dbo.Persons.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FE9F246-840F-4A1F-92EE-958545499E60}|FinClient\\FinClient.csproj|G:\\FinClientNew\\finclient\\forms\\administratorspersonalaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0FE9F246-840F-4A1F-92EE-958545499E60}|FinClient\\FinClient.csproj|solutionrelative:finclient\\forms\\administratorspersonalaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,7 +29,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,29 +65,62 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20240516191330_AdminAdded.cs",
-              "DocumentMoniker": "G:\\FinClientNew\\FinServer\\Migrations\\20240516191330_AdminAdded.cs",
-              "RelativeDocumentMoniker": "FinServer\\Migrations\\20240516191330_AdminAdded.cs",
-              "ToolTip": "G:\\FinClientNew\\FinServer\\Migrations\\20240516191330_AdminAdded.cs",
-              "RelativeToolTip": "FinServer\\Migrations\\20240516191330_AdminAdded.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "ShowUserInformation.cs [Design]",
+              "DocumentMoniker": "G:\\FinClientNew\\FinClient\\Forms\\ShowUserInformation.cs",
+              "RelativeDocumentMoniker": "FinClient\\Forms\\ShowUserInformation.cs",
+              "ToolTip": "G:\\FinClientNew\\FinClient\\Forms\\ShowUserInformation.cs [Design]",
+              "RelativeToolTip": "FinClient\\Forms\\ShowUserInformation.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-16T19:13:31.032Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-20T20:25:06.097Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "dbo.Persons [\u0414\u0430\u043D\u043D\u044B\u0435]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FinServerDb/True/SqlTable/dbo.Persons.sql",
+              "ToolTip": "dbo.Persons [\u0414\u0430\u043D\u043D\u044B\u0435]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-05-20T20:04:36.544Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ShowUserInformation.cs",
+              "DocumentMoniker": "G:\\FinClientNew\\FinClient\\Forms\\ShowUserInformation.cs",
+              "RelativeDocumentMoniker": "FinClient\\Forms\\ShowUserInformation.cs",
+              "ToolTip": "G:\\FinClientNew\\FinClient\\Forms\\ShowUserInformation.cs",
+              "RelativeToolTip": "FinClient\\Forms\\ShowUserInformation.cs",
+              "ViewState": "AQIAADwAAAAAAAAAAAAmwEkAAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-20T19:53:53.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminService.cs",
+              "DocumentMoniker": "G:\\FinClientNew\\FinServer\\Services\\AdminService.cs",
+              "RelativeDocumentMoniker": "FinServer\\Services\\AdminService.cs",
+              "ToolTip": "G:\\FinClientNew\\FinServer\\Services\\AdminService.cs*",
+              "RelativeToolTip": "FinServer\\Services\\AdminService.cs*",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAmwEEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T11:10:26.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "AdministratorsPersonalAccount.cs",
               "DocumentMoniker": "G:\\FinClientNew\\FinClient\\Forms\\AdministratorsPersonalAccount.cs",
               "RelativeDocumentMoniker": "FinClient\\Forms\\AdministratorsPersonalAccount.cs",
               "ToolTip": "G:\\FinClientNew\\FinClient\\Forms\\AdministratorsPersonalAccount.cs",
               "RelativeToolTip": "FinClient\\Forms\\AdministratorsPersonalAccount.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAArwEQAAAA9AAAA",
+              "ViewState": "AQIAAGMAAAAAAAAAAAA3wCcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-16T18:28:40.023Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-16T18:28:40.023Z"
             }
           ]
         },

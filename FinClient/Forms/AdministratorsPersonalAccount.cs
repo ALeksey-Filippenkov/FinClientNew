@@ -1,8 +1,8 @@
-﻿using FinCommon.DTO;
+﻿using System.Net.Http.Json;
+using FinCommon.DTO;
 using FinCommon.Models;
-using System.Net.Http.Json;
 
-namespace FinancialApp.Forms
+namespace FinClient.Forms
 {
     public partial class AdministratorsPersonalAccount : Form
     {
@@ -31,7 +31,7 @@ namespace FinancialApp.Forms
             else
             {
                 using var httpClient = new HttpClient();
-                var response = await httpClient.GetAsync(ServerConst.URL + $"Admin/Name/{_id}");
+                var response = await httpClient.GetAsync(ServerConst.URL + $"Admin/UsersData/{_id}");
                 var result = await response.Content.ReadFromJsonAsync<AdminNameDTO>();
 
                 nameAdministration.Text = result.AdministratorName;
@@ -69,8 +69,8 @@ namespace FinancialApp.Forms
 
         private void ShowUserPersonalDataButton_Click(object sender, EventArgs e)
         {
-            //var showUserInformation = new ShowUserInformation(_db, _id, _context, _isGeneralAdmin);
-            //showUserInformation.Show();
+            var showUserInformation = new ShowUserInformation(_id,_isGeneralAdmin);
+            showUserInformation.Show();
         }
 
         private void BanUserButton_Click(object sender, EventArgs e)

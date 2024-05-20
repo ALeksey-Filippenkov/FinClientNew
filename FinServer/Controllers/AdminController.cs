@@ -24,5 +24,16 @@ namespace FinServer.Controllers
         {
             return _adminService.GetAdministratorsName(id);
         }
+
+        /// <summary>
+        /// Получение информации о пользователях
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        [HttpPost("SearchUsersData")]
+        public UserDataOfTheProgramDTO GetUserDataOfTheProgram([FromBody] SearchForUserDataDTO dto)
+        {
+            return _adminService.GetUsersOfTheProgram(dto);
+        }
     }
 }

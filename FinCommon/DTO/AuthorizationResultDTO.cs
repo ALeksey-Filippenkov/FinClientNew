@@ -25,7 +25,7 @@
         /// <summary>
         /// Роль пользователя
         /// </summary>
-        public Enum UserRole { get; set; }
+        public string UserRole { get; set; }
 
         /// <summary>
         /// Уникальный ID пользователя
