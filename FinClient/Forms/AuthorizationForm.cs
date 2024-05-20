@@ -30,21 +30,27 @@ namespace FinClient.Forms
             {
                 GeneralMethodsClient.CommonMethodClient.ShowErrorAuthorizationForm(authorizationResult);
             }
-            else if (authorizationResult.UserRole == (System.Enum)TheUsersRoleInTheProgram.User)
+            else if (authorizationResult.UserRole == RoleInTheProgram.GetUsersRoleInTheProgram(TheUsersRoleInTheProgram.User))
             {
                 var usersPersonalAccount = new UsersPersonalAccount(authorizationResult.IdAccount, this);
                 usersPersonalAccount.Show();
 
                 Hide();
             }
-            else if (authorizationResult.UserRole == (System.Enum)TheUsersRoleInTheProgram.Admin)
+            else if (authorizationResult.UserRole == RoleInTheProgram.GetUsersRoleInTheProgram(TheUsersRoleInTheProgram.Admin))
             {
                 var isGeneralAdmin = false;
                 var administratorsPersonalAccount =
                     new AdministratorsPersonalAccount(authorizationResult.IdAccount, this, isGeneralAdmin);
                 administratorsPersonalAccount.Show();
             }
-
+            else if (authorizationResult.UserRole == RoleInTheProgram.GetUsersRoleInTheProgram(TheUsersRoleInTheProgram.SuperAdmin))
+            {
+                var isGeneralAdmin = true;
+                var administratorsPersonalAccount =
+                    new AdministratorsPersonalAccount(authorizationResult.IdAccount, this, isGeneralAdmin);
+                administratorsPersonalAccount.Show();
+            }
         }
 
         private void RegistrationButton_Click(object sender, EventArgs e)

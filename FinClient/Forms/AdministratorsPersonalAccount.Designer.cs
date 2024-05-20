@@ -1,4 +1,4 @@
-﻿namespace FinancialApp.Forms
+﻿namespace FinClient.Forms
 {
     partial class AdministratorsPersonalAccount
     {
